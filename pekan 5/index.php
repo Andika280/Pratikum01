@@ -14,7 +14,6 @@ if (isset($_POST['simpan'])) {
     $harga = $_POST['harga'];
     $gambar = $_POST['gambar_lama'];
 
-    // Logika Upload File (Sesuai Modul 5)
     if ($_FILES['gambar']['name'] != "") {
         $uploadDir = 'uploads/';
         $imageFileType = strtolower(pathinfo($_FILES["gambar"]["name"], PATHINFO_EXTENSION));
@@ -35,10 +34,10 @@ if (isset($_POST['simpan'])) {
     }
 
     if (empty($id)) {
-        // CREATE
+
         $sql = "INSERT INTO produk (nama_produk, kategori, harga, gambar) VALUES ('$nama_produk', '$kategori', '$harga', '$gambar')";
     } else {
-        // UPDATE
+
         $sql = "UPDATE produk SET nama_produk='$nama_produk', kategori='$kategori', harga='$harga', gambar='$gambar' WHERE id=$id";
     }
     
